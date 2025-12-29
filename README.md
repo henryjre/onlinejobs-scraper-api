@@ -1,8 +1,10 @@
 # 🕷️ OnlineJobs.ph Scraper API (Dockerized)
 
-A robust, stealthy microservice designed to scrape job listings from OnlineJobs.ph. Built with **Node.js**, **Express**, and **Puppeteer**, this tool is containerized with **Docker** for easy deployment and integration.
+[![Docker Pulls](https://img.shields.io/docker/pulls/henryjre/onlinejobs-scraper-api?style=for-the-badge&logo=docker&logoColor=white&color=0db7ed)](https://hub.docker.com/r/henryjre/onlinejobs-scraper-api)
+[![GitHub Forks](https://img.shields.io/github/forks/henryjre/onlinejobs-scraper-api?style=for-the-badge&logo=github&logoColor=white&color=black)](https://github.com/henryjre/onlinejobs-scraper-api/network)
+[![GitHub Stars](https://img.shields.io/github/stars/henryjre/onlinejobs-scraper-api?style=for-the-badge&logo=github&logoColor=white&color=black)](https://github.com/henryjre/onlinejobs-scraper-api/stargazers)
 
-Visit 
+A robust, stealthy microservice designed to scrape job listings from OnlineJobs.ph. Built with **Node.js**, **Express**, and **Puppeteer**, this tool is containerized with **Docker** for easy deployment and integration.
 
 ## 🚀 Features
 
@@ -28,6 +30,8 @@ Visit
 ### Prerequisites
 
 * Docker & Docker Compose installed on your machine.
+
+**🐳 Official Docker Image:** You can pull the pre-built image directly from Docker Hub: [henryjre/onlinejobs-scraper-api](https://hub.docker.com/r/henryjre/onlinejobs-scraper-api)
 
 ### Option 1: Quick Start (Docker Hub)
 
