@@ -9,7 +9,7 @@ const PORT = 1234;
 
 const wait = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
-app.get('/scrape', async (req, res) => {
+app.get('/search', async (req, res) => {
   const keyword = req.query.keyword || '';
   const limit = parseInt(req.query.limit) || 5;
   const deepFetch = req.query.deep_fetch === 'true';

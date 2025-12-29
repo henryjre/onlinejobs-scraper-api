@@ -83,7 +83,7 @@ The API will start on port 1234 by default.
 
 ## 📡 API Documentation
 
-`GET /scrape` - Scrapes job listings based on a keyword.
+`GET /search` - Searches job listings based on a keyword.
 
 ### Optional Query Parameters
 
@@ -91,13 +91,13 @@ The API will start on port 1234 by default.
 | --- | --- | --- | --- |
 | `keyword` | `string` | `""` | The search term (e.g., React Developer). If empty, returns latest jobs. |
 | `limit` | `number` | `5` | Limits the number of results to prevent timeouts. |
-| `deep_fetch` | `boolean` | `false` | Set to `true` to scrape full descriptions (Slower). |
+| `deep_fetch` | `boolean` | `false` | Set to `true` to get full descriptions (Slower). |
 | `proxies`/`proxy` | `string` | `null` | A single proxy, comma-separated list, or array of proxies. |
 
 ### Example Request (Basic)
 
 ```bash
-curl "http://localhost:1234/scrape?keyword=virtual%20assistant&limit=3"
+curl "http://localhost:1234/search?keyword=virtual%20assistant&limit=3"
 ```
 
 ### Response
@@ -119,7 +119,7 @@ curl "http://localhost:1234/scrape?keyword=virtual%20assistant&limit=3"
 ### Example Request (With Proxies & Deep Fetch)
 
 ```bash
-curl "http://localhost:1234/scrape?keyword=react&deep_fetch=true&proxies=[http://user:pass@1.1.1.1:8080](http://user:pass@1.1.1.1:8080),[http://user:pass@2.2.2.2:8080](http://user:pass@2.2.2.2:8080)"
+curl "http://localhost:1234/search?keyword=react&deep_fetch=true&proxies=[http://user:pass@1.1.1.1:8080](http://user:pass@1.1.1.1:8080),[http://user:pass@2.2.2.2:8080](http://user:pass@2.2.2.2:8080)"
 ```
 
 ### Response
