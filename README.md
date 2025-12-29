@@ -2,6 +2,8 @@
 
 A robust, stealthy microservice designed to scrape job listings from OnlineJobs.ph. Built with **Node.js**, **Express**, and **Puppeteer**, this tool is containerized with **Docker** for easy deployment and integration.
 
+Visit 
+
 ## 🚀 Features
 
 * **Dockerized:** Runs in an isolated container with all dependencies pre-installed.
@@ -27,18 +29,53 @@ A robust, stealthy microservice designed to scrape job listings from OnlineJobs.
 
 * Docker & Docker Compose installed on your machine.
 
-### 1. Clone the Repository
+### Option 1: Quick Start (Docker Hub)
+
+The easiest way to run the scraper without downloading any code.
+
+**Run via Docker CLI:**
 
 ```bash
-git clone https://github.com/henryjre/onlinejobs-scraper-api.git
-cd onlinejobs-scraper-api
+docker run -d -p 1234:1234 --name onlinejobs-scraper henryjre/onlinejobs-scraper-api:latest
 ```
 
-### 2. Build and Run via Docker
+**Run via Docker Compose:**
+
+Create a `docker-compose.yml` file with the following content:
+
+```yaml
+version: '3'
+services:
+  job-scraper:
+    image: henryjre/onlinejobs-scraper-api:latest
+    container_name: onlinejobs-scraper
+    restart: unless-stopped
+    ports:
+      - "1234:1234"
+```
+
+Then start it:
 
 ```bash
-docker-compose up -d --build
+docker-compose up -d
 ```
+
+### Option 2: Build from Source (For Developers)
+
+If you want to modify the code or build the image locally:
+
+1. **Clone the Repository**
+
+    ```bash
+    git clone https://github.com/henryjre/onlinejobs-scraper-api.git
+    cd onlinejobs-scraper-api
+    ```
+
+2. Build and Run via Docker
+
+    ```bash
+    docker-compose up -d --build
+    ```
 
 The API will start on port 1234 by default.
 
