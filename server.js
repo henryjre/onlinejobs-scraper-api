@@ -64,11 +64,22 @@ app.get('/scrape', async (req, res) => {
     await page.goto(searchUrl, { waitUntil: 'networkidle2', timeout: 60000 });
 
     const initialJobs = await page.evaluate(() => {
-      return Array.from(document.querySelectorAll('.jobpost-cat-box')).map((card) => ({
-        title: card.querySelector('h4')?.innerText.trim(),
-        jobType: card.querySelector('.badge')?.innerText.trim(),
-        link: card.querySelector('a')?.href,
-      }));
+      return Array.from(document.querySelectorAll('.jobpost-cat-box')).map((card) => {
+        const title = card.querySelector('h4')?.innerText.trim();
+        const jobType = card.querySelector('.badge')?.innerText.trim();
+        const link = card.querySelector('a')?.href;
+        const rawNameText = card.querySelector('p.fs-13')?.innerText || '';
+        const postedBy = rawNameText.includes('•')
+          ? rawNameText.split('•')[0].trim()
+          : rawNameText.trim();
+
+        return {
+          title: title,
+          jobType: jobType,
+          link: link,
+          postedBy: postedBy,
+        };
+      });
     });
 
     const jobsToScrape = initialJobs.slice(0, limit);
